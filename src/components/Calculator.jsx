@@ -14,20 +14,23 @@ function Calculator() {
 
     function handleKeyPress(event) {
         const key = event.key;
-        console.log(key)
         const validKeys = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '*', '+', '/', '-', '.', '='];
         if (key == 'Enter')
             handleInput('=');
-        else if (key == 'Backspace')
-            setInput(prevState => prevState.slice(0, prevState.length - 1))
         else if (validKeys.includes(key))
             handleInput(key);
         else
             alert('Invalid key pressed. Please try with valid key.');
     }
 
+    function handleBackSpace(event) {
+        if (event.key == 'Backspace')
+            setInput(prevState => prevState.slice(0, prevState.length - 1))
+    }
+
     useEffect(() => {
-        document.addEventListener('keyup', handleKeyPress)
+        document.addEventListener('keypress', handleKeyPress)
+        document.addEventListener('keyup', handleBackSpace);
     }, [])
 
     return (
