@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 function Calculator() {
+    
     const [ input, setInput ] = useState("");
     const btnStyles = "bg-slate-800 w-12 h-12 text-xl rounded-full focus:outline-none focus:border-none";
     
